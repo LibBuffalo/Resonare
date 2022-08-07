@@ -10,7 +10,18 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatDividerModule} from '@angular/material/divider';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
-import { PlanningComponent } from './planning/planning.component'
+import { PlanningComponent } from './planning/planning.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +29,10 @@ import { PlanningComponent } from './planning/planning.component'
     NavBarComponent,
     ProjectsListComponent,
     TasksListComponent,
-    PlanningComponent
+    PlanningComponent,
+    ProjectDetailComponent,
+    TaskDetailComponent,
+    AddProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +40,16 @@ import { PlanningComponent } from './planning/planning.component'
     NgbModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

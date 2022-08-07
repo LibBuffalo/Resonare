@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AddProjectComponent } from '../add-project/add-project.component';
 
 @Component({
   selector: 'app-projects-list',
@@ -10,6 +12,13 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProjectsListComponent implements OnInit {
   
+  constructor(private dialog: MatDialog){}
+  openDialog() {
+    this.dialog.open(AddProjectComponent, {
+      width: '30%'
+    });
+  }
+
   addProjectButton() {
     let project = new AddProject('Helikunst', 'talveProjekt');
     console.log(project)
