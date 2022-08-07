@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div class="row">
+        <!-- <div class="col col-auto"><img src="/assets/logo.png" alt="Resonare logo" width="100px" height="100px" img></div> -->
+        <div class="col col-auto-7"><a mat-button href="" target="_blank"><h1>Resonare</h1></a></div>
+        <div class="col col-auto"><a [routerLink]="['/']"mat-button>Home</a></div>
+        <div class="col col-auto"><a [routerLink]="['/projects-list']" mat-button>Projects</a></div>
+        <div class="col col-auto"><a [routerLink]="['/tasks-list']" mat-button>Tasks</a></div>
+        <div class="col col-auto"><a [routerLink]="['/planning']" mat-button>Calendar</a></div>
+
+    </div>
+</div>
+<mat-divider></mat-divider>
+
+<router-outlet></router-outlet>
