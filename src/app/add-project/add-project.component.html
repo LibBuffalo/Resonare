@@ -1,0 +1,56 @@
+<h1 mat-dialog-title style="text-transform: uppercase; font-weight: bold; text-align: center;">Add Project</h1>
+<div mat-dialog-content>
+    <form [formGroup]="projectForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <input formControlName="category" matInput placeholder="Category">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Project Name</mat-label>
+            <input formControlName="projectName" matInput placeholder="Project Name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Project Date</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input formControlName="projectStartDate" matStartDate placeholder="Start date">
+              <input formControlName="projectEndDate" matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>References</mat-label>
+            <input formControlName="references" matInput placeholder="References">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Name</mat-label>
+            <input formControlName="contactName" matInput placeholder="Contact Name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Email</mat-label>
+            <input type="email" formControlName="contactEmail" matInput [formControl]="emailFormControl" placeholder="Ex. info@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email')">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Phone Number</mat-label>
+            <input type="number" formControlName="contactPhoneNumber" matInput placeholder="Ex. 3725512312">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Cost</mat-label>
+            <input formControlName="cost" matInput type="number" placeholder="Cost">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Comments</mat-label>
+            <textarea formControlName="comments" matInput placeholder="Comments"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-flat-button mat-dialog-close>Close</button>
+    <button mat-flat-button (click)="addProject()">Save</button>
+</div>
+
+

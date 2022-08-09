@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { AddProjectComponent } from '../add-project/add-project.component';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-projects-list',
@@ -11,40 +15,46 @@ import { AddProjectComponent } from '../add-project/add-project.component';
 
 
 export class ProjectsListComponent implements OnInit {
-  
-  constructor(private dialog: MatDialog){}
+  displayedColumns: string[] = ['category', 'projectName', 'projectStartDate', 'projectEndDate', 'action'];
+  dataSource!: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  constructor(private dialog: MatDialog, private api: ApiService){}
   openDialog() {
     this.dialog.open(AddProjectComponent, {
       width: '30%'
     });
   }
 
-  addProjectButton() {
-    let project = new AddProject('Helikunst', 'talveProjekt');
-    console.log(project)
+  getAllProjects(){
+    this.api.getProject()
+    .subscribe({
+      next:(res)=>{
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error:(err)=>{
+        alert("Error while fetching the projects data!")
+      }
+    })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   ngOnInit(): void {
+    this.getAllProjects();
   }
 
-}
 
-let projectData: [];
-
-class AddProject {
-  category: string;
-  projectName: any;
-  projectDate: any;
-  deadline: any;
-  constructor(_category: string, _projectName: any) {
-    this.category = _category;
-    this.projectName = _projectName;
-    this.projectDate = "";
-    this.deadline = "";
-  }
-  projectProperiesToArray() {
-    
-  }
 }
 
 
