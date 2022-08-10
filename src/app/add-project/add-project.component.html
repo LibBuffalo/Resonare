@@ -49,8 +49,8 @@
     </form>
 </div>
 <div mat-dialog-action [align]="'end'">
-    <button mat-flat-button mat-dialog-close>Close</button>
-    <button mat-flat-button (click)="addProject()">Save</button>
+    <button mat-stroked-button mat-dialog-close style="color: orangered; border-radius: 20px; margin-right: 4px;">Close</button>
+    <button mat-stroked-button (click)="addProject()" style="color: forestgreen; border-radius: 20px; margin-left: 4px;">{{ saveButton }}</button>
 </div>
 
 

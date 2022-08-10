@@ -21,15 +21,20 @@ export class ProjectsListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private dialog: MatDialog, private api: ApiService){}
-  openDialog() {
+
+  openDialogAddProject() {
     this.dialog.open(AddProjectComponent, {
       width: '30%'
-    });
+    }).afterClosed().subscribe(val=>{
+      if(val === 'save'){
+        this.getAllProjects();
+      }
+
+    })
   }
 
   getAllProjects(){
-    this.api.getProject()
-    .subscribe({
+    this.api.getProjects().subscribe({
       next:(res)=>{
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
@@ -37,6 +42,29 @@ export class ProjectsListComponent implements OnInit {
       },
       error:(err)=>{
         alert("Error while fetching the projects data!")
+      }
+    })
+  }
+
+  editProject(row: any){
+    this.dialog.open(AddProjectComponent, {
+      width: '30%',
+      data: row
+    }).afterClosed().subscribe(val=>{
+      if(val === 'update'){
+        this.getAllProjects();
+      }
+    })
+  }
+
+  deleteProject(id: number){
+    this.api.deleteProject(id).subscribe({
+      next:(res)=>{
+        alert("Project Deleted Successfully");
+        this.getAllProjects();
+      },
+      error:()=>{
+        alert("Error while deleting the project");
       }
     })
   }
@@ -50,6 +78,17 @@ export class ProjectsListComponent implements OnInit {
     }
   }
 
+  openProjectDetails(id: number){
+    this.api.getProjectDetails(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+      },
+      error:()=>{
+        alert("Error while fetching project details");
+      }
+    })
+    
+  }
   ngOnInit(): void {
     this.getAllProjects();
   }

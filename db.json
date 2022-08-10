@@ -1,32 +1,6 @@
 {
   "projectsList": [
     {
-      "category": "ESL",
-      "projectName": "Haapsalu Suvekool",
-      "projectStartDate": "2022-08-17T21:00:00.000Z",
-      "projectEndDate": "2022-08-19T21:00:00.000Z",
-      "references": "http://resonare.ee",
-      "contactName": "Kaljuste",
-      "contactEmail": "kaljuste@mail.ee",
-      "contactPhoneNumber": 3725116126,
-      "cost": 6700,
-      "comments": "Eriti odav projekt.",
-      "id": 1
-    },
-    {
-      "category": "Helikunst",
-      "projectName": "Seitse merd",
-      "projectStartDate": "2022-08-29T21:00:00.000Z",
-      "projectEndDate": "2022-08-29T21:00:00.000Z",
-      "references": "https://helikunst.ee/",
-      "contactName": "Valle",
-      "contactEmail": "valle@mail.com",
-      "contactPhoneNumber": 3725673234,
-      "cost": 3600,
-      "comments": "Lahe projekt.",
-      "id": 2
-    },
-    {
       "category": "Voces",
       "projectName": "Esimene projekt",
       "projectStartDate": "2022-08-24T21:00:00.000Z",
@@ -40,17 +14,43 @@
       "id": 3
     },
     {
-      "category": "Helikunst",
-      "projectName": "Kuus kuud",
-      "projectStartDate": "2022-08-08T21:00:00.000Z",
-      "projectEndDate": "2022-08-08T21:00:00.000Z",
-      "references": "",
+      "category": "ESL",
+      "projectName": "Haapsalu suvekool",
+      "projectStartDate": "2022-08-17T21:00:00.000Z",
+      "projectEndDate": "2022-08-19T21:00:00.000Z",
+      "references": "www.ee",
       "contactName": "Joosep",
-      "contactEmail": "example@mail.com",
+      "contactEmail": "joosep@mail.com",
       "contactPhoneNumber": 3725116126,
-      "cost": 2800,
-      "comments": "Uus kommentaar",
+      "cost": 555,
+      "comments": "Kommentaar",
       "id": 4
+    },
+    {
+      "category": "Helikunst",
+      "projectName": "Marceli lähetamine",
+      "projectStartDate": "2022-08-25T21:00:00.000Z",
+      "projectEndDate": "2022-08-25T21:00:00.000Z",
+      "references": "https://helikunst.ee/",
+      "contactName": "Valle",
+      "contactEmail": "valle@mail.ee",
+      "contactPhoneNumber": 3725533221,
+      "cost": 14000,
+      "comments": "Uus kommentaar",
+      "id": 5
+    },
+    {
+      "category": "Helikunst",
+      "projectName": "Apelisn",
+      "projectStartDate": "2022-08-29T21:00:00.000Z",
+      "projectEndDate": "2022-08-30T21:00:00.000Z",
+      "references": "rate.ee",
+      "contactName": "Urmo",
+      "contactEmail": "urmo@mail.com",
+      "contactPhoneNumber": 3729992233,
+      "cost": 230,
+      "comments": "Jeei",
+      "id": 6
     }
   ],
   "comments": [
