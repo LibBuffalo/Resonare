@@ -1,8 +1,9 @@
-<h1 mat-dialog-title style="text-transform: uppercase; font-weight: bold; text-align: center;">Add Project</h1>
+<h1 mat-dialog-title style="text-transform: uppercase; font-weight: bold; text-align: center;">{{ dialogTitel }}</h1>
 <div mat-dialog-content>
     <form [formGroup]="projectForm">
         <mat-form-field appearance="outline">
             <mat-label>Category</mat-label>
+            <mat-icon matSuffix>category</mat-icon>
             <input formControlName="category" matInput placeholder="Category">
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -21,14 +22,17 @@
           </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>References</mat-label>
+            <mat-icon matSuffix>link</mat-icon>
             <input formControlName="references" matInput placeholder="References">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Contact Name</mat-label>
+            <mat-icon matSuffix>contacts</mat-icon>
             <input formControlName="contactName" matInput placeholder="Contact Name">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Contact Email</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
             <input type="email" formControlName="contactEmail" matInput [formControl]="emailFormControl" placeholder="Ex. info@example.com">
             <mat-error *ngIf="emailFormControl.hasError('email')">
                 Please enter a valid email address
@@ -36,11 +40,13 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Contact Phone Number</mat-label>
+            <mat-icon matSuffix>phone</mat-icon>
             <input type="number" formControlName="contactPhoneNumber" matInput placeholder="Ex. 3725512312">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Cost</mat-label>
-            <input formControlName="cost" matInput type="number" placeholder="Cost">
+            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <input formControlName="cost" matInput type="number" placeholder="€ ">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Comments</mat-label>

@@ -1,26 +1,11 @@
-<!-- <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Resonare</span>
-    <span class="spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-</mat-toolbar> -->
+<mat-toolbar>
+  <a mat-button [routerLink]="''"><h1>Resonare</h1></a>
+  <span class="example-spacer"></span>
+  <a mat-button [routerLink]="''">Home</a>
+  <a mat-button [routerLink]="'projects'">Projects</a>
+  <a mat-button [routerLink]="'tasks'">Tasks</a>
+  <a mat-button [routerLink]="'planning'">Calendar</a>
+</mat-toolbar>
 
-<div class="container">
-    <div class="row" style="margin-top: 10px;">
-        <!-- <div class="col col-auto"><img src="/assets/logo.png" alt="Resonare logo" width="100px" height="100px" img></div> -->
-        <div class="col col-auto-7"><a [routerLink]="''" mat-button><h1>Resonare</h1></a></div>
-        <div class="col col-auto"><a [routerLink]="''" mat-button>Home</a></div>
-        <div class="col col-auto"><a [routerLink]="'projects'" mat-button>Projects</a></div>
-        <div class="col col-auto"><a [routerLink]="'tasks'" mat-button>Tasks</a></div>
-        <div class="col col-auto"><a [routerLink]="'planning'" mat-button>Calendar</a></div>
 
-    </div>
-</div>
 <mat-divider></mat-divider>

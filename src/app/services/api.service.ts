@@ -13,11 +13,15 @@ export class ApiService {
 
   }
 
+  getProject(id: string) {
+    return this.http.get(`http://localhost:3000/projectsList/${id}`)
+  }
+
   getProjects(){
     return this.http.get<any>('http://localhost:3000/projectsList');
   }
 
-  putProject(data:any,id : number){
+  putProject(data: any, id: number){
     return this.http.put<any>("http://localhost:3000/projectsList/"+id, data);
   }
 

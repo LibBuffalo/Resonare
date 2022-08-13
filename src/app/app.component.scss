@@ -7,9 +7,3 @@ app-root {
   border-radius: 20px;
   text-transform: uppercase;
 }
-
-$background-img: "../assets/";
-
-body {
-  background: url(#{$background-img}/logo.png);
-}

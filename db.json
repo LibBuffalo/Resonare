@@ -1,21 +1,8 @@
 {
   "projectsList": [
     {
-      "category": "Voces",
-      "projectName": "Esimene projekt",
-      "projectStartDate": "2022-08-24T21:00:00.000Z",
-      "projectEndDate": "2022-08-26T21:00:00.000Z",
-      "references": "https://vocestallinn.ee/et/",
-      "contactName": "Inimene",
-      "contactEmail": "mariell@mail.ee",
-      "contactPhoneNumber": 372893332,
-      "cost": 14000,
-      "comments": "Minu esimene projekt.",
-      "id": 3
-    },
-    {
       "category": "ESL",
-      "projectName": "Haapsalu suvekool",
+      "projectName": "Haapsalu Suvekool",
       "projectStartDate": "2022-08-17T21:00:00.000Z",
       "projectEndDate": "2022-08-19T21:00:00.000Z",
       "references": "www.ee",
@@ -28,20 +15,7 @@
     },
     {
       "category": "Helikunst",
-      "projectName": "Marceli lähetamine",
-      "projectStartDate": "2022-08-25T21:00:00.000Z",
-      "projectEndDate": "2022-08-25T21:00:00.000Z",
-      "references": "https://helikunst.ee/",
-      "contactName": "Valle",
-      "contactEmail": "valle@mail.ee",
-      "contactPhoneNumber": 3725533221,
-      "cost": 14000,
-      "comments": "Uus kommentaar",
-      "id": 5
-    },
-    {
-      "category": "Helikunst",
-      "projectName": "Apelisn",
+      "projectName": "Apelsin",
       "projectStartDate": "2022-08-29T21:00:00.000Z",
       "projectEndDate": "2022-08-30T21:00:00.000Z",
       "references": "rate.ee",
@@ -51,6 +25,58 @@
       "cost": 230,
       "comments": "Jeei",
       "id": 6
+    },
+    {
+      "category": "ESL",
+      "projectName": "Jõulukontsert",
+      "projectStartDate": "2022-12-23T22:00:00.000Z",
+      "projectEndDate": "2022-12-23T22:00:00.000Z",
+      "references": "",
+      "contactName": "Mariell Aren",
+      "contactEmail": "mariell@gmail.com",
+      "contactPhoneNumber": 3729911223,
+      "cost": 2500,
+      "comments": "Jõulukas",
+      "id": 7
+    },
+    {
+      "category": "Voces Tallinn",
+      "projectName": "Uus projekt",
+      "projectStartDate": "2022-08-25T21:00:00.000Z",
+      "projectEndDate": "2022-08-25T21:00:00.000Z",
+      "references": "voces.ee",
+      "contactName": "Malle",
+      "contactEmail": "malle@mail.jp",
+      "contactPhoneNumber": 372564737,
+      "cost": 4830,
+      "comments": "Kunagi tuleb",
+      "id": 8
+    },
+    {
+      "category": "Helikust",
+      "projectName": "Project 2",
+      "projectStartDate": "2022-08-10T21:00:00.000Z",
+      "projectEndDate": "2022-08-12T21:00:00.000Z",
+      "references": "www.example.com",
+      "contactName": "Joosep",
+      "contactEmail": "example@mail.com",
+      "contactPhoneNumber": 372511511,
+      "cost": 30,
+      "comments": "Test Comment",
+      "id": 9
+    },
+    {
+      "category": "Helikunst",
+      "projectName": "Project New World",
+      "projectStartDate": "2022-08-30T21:00:00.000Z",
+      "projectEndDate": "2022-08-30T21:00:00.000Z",
+      "references": "www.tallinn.ee",
+      "contactName": "Karu",
+      "contactEmail": "karu@mail.com",
+      "contactPhoneNumber": 3725118182,
+      "cost": 35000,
+      "comments": "New comment",
+      "id": 10
     }
   ],
   "comments": [

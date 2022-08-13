@@ -1,3 +1,45 @@
-<p>project-detail works!</p>
+<!-- <div *ngIf='_data' class="container">
+    <div style="margin-top: 20px;">
+        <h4>Category: {{ _data.category }}</h4>
+        <h4>Project Name: {{ _data.projectName }}</h4>
+        <h4>Project Start Date: {{ _data.projectStartDate | date }}</h4>
+        <h4>Project End Date: {{ _data.projectEndDate | date }}</h4>
+        <h4>References: {{ _data.references }}</h4>
+        <h4>Contact Name: {{ _data.contactName }}</h4>
+        <h4>Contact Email: {{ _data.contactEmail }}</h4>
+        <h4>Contact Phone Number: {{ _data.contactPhoneNumber }}</h4>
+        <h4>Project Cost: {{ _data.cost }}</h4>
+        <h4>Comments: {{ _data.comments }}</h4>
+    </div>
+</div> -->
 
-<button (click)="getProject(3)">Projekt</button>
+<div *ngIf='_data' class="container">
+    <div>
+        <mat-card class="card">
+            <mat-card-title-group>
+                <mat-card-title>{{ _data.projectName }}</mat-card-title>
+                <mat-card-subtitle>{{ _data.category }}</mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
+                <h4 class="sameLine"><strong>Project Start Date: </strong></h4><p class="sameLine">{{ _data.projectStartDate | date }}</p><br>
+                <h4 class="sameLine"><strong>Project End Date: </strong></h4><p class="sameLine">{{ _data.projectEndDate | date }}</p><br>
+                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _data.references }}</p><br>
+                <h4 class="sameLine"><strong>Contact Name: </strong></h4><p class="sameLine">{{ _data.contactName }}</p><br>
+                <h4 class="sameLine"><strong>Contact Email: </strong></h4><p class="sameLine">{{ _data.contactEmail }}</p><br>
+                <h4 class="sameLine"><strong>Contact Phone Number: </strong></h4><p class="sameLine">{{ _data.contactPhoneNumber }}</p><br>
+                <h4 class="sameLine"><strong>Project Cost: </strong></h4><p class="sameLine">{{ _data.cost }} €</p><br>
+                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _data.comments }}</p><br>
+            </mat-card-content>
+            <mat-card-actions align='end'>
+                <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;">EDIT</button>
+                <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backProjectListPage()">BACK</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<div *ngIf='!_data'>
+    Loading...
+</div>
+
+
+

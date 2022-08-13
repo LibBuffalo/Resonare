@@ -12,6 +12,8 @@ export class AddProjectComponent implements OnInit {
   emailFormControl = new FormControl('', Validators.email);
   projectForm !: FormGroup;
   saveButton: string = "Save";
+  dialogTitel: string = "ADD PROJECT";
+  
   constructor(
     private formBuilder: FormBuilder, 
     private api: ApiService, 
@@ -34,6 +36,7 @@ export class AddProjectComponent implements OnInit {
     });
 
     if(this.editData){
+      this.dialogTitel = "EDIT PROJECT"
       this.saveButton = "Update"
       this.projectForm.controls['category'].setValue(this.editData.category);
       this.projectForm.controls['projectName'].setValue(this.editData.projectName);

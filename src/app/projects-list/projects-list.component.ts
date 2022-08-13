@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { ApiService } from '../services/api.service';
+
 
 @Component({
   selector: 'app-projects-list',
@@ -13,14 +15,16 @@ import { ApiService } from '../services/api.service';
 })
 
 
-
 export class ProjectsListComponent implements OnInit {
+
   displayedColumns: string[] = ['category', 'projectName', 'projectStartDate', 'projectEndDate', 'action'];
   dataSource!: MatTableDataSource<any>;
+  
+  _data: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private dialog: MatDialog, private api: ApiService){}
+  constructor(private dialog: MatDialog, private api: ApiService, private router: Router){}
 
   openDialogAddProject() {
     this.dialog.open(AddProjectComponent, {
@@ -32,6 +36,12 @@ export class ProjectsListComponent implements OnInit {
 
     })
   }
+
+  openPageProjectDetails(row: any){
+    this.router.navigate([`project-detail/${row.id}`], {
+    })
+  }
+  
 
   getAllProjects(){
     this.api.getProjects().subscribe({
@@ -77,18 +87,7 @@ export class ProjectsListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  openProjectDetails(id: number){
-    this.api.getProjectDetails(id).subscribe({
-      next:(res)=>{
-        console.log(res);
-      },
-      error:()=>{
-        alert("Error while fetching project details");
-      }
-    })
-    
-  }
+  
   ngOnInit(): void {
     this.getAllProjects();
   }
