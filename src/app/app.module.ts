@@ -29,6 +29,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatCardModule } from '@angular/material/card';
+import { HomeComponent } from './home/home.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { MatCardModule } from '@angular/material/card';
     TaskDetailComponent,
     AddProjectComponent,
     SidenavComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { MatCardModule } from '@angular/material/card';
     MatPaginatorModule,
     MatSortModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

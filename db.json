@@ -23,7 +23,7 @@
       "contactEmail": "urmo@mail.com",
       "contactPhoneNumber": 3729992233,
       "cost": 230,
-      "comments": "Jeei",
+      "comments": "Jeei. Updated comment. New update",
       "id": 6
     },
     {
@@ -42,14 +42,14 @@
     {
       "category": "Voces Tallinn",
       "projectName": "Uus projekt",
-      "projectStartDate": "2022-08-25T21:00:00.000Z",
-      "projectEndDate": "2022-08-25T21:00:00.000Z",
+      "projectStartDate": "2022-08-05T21:00:00.000Z",
+      "projectEndDate": "2022-08-26T21:00:00.000Z",
       "references": "voces.ee",
       "contactName": "Malle",
       "contactEmail": "malle@mail.jp",
       "contactPhoneNumber": 372564737,
-      "cost": 4830,
-      "comments": "Kunagi tuleb",
+      "cost": 4880,
+      "comments": "Kunagi tuleb. New comment",
       "id": 8
     },
     {

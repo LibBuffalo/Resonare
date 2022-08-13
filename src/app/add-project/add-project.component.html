@@ -2,12 +2,11 @@
 <div mat-dialog-content>
     <form [formGroup]="projectForm">
         <mat-form-field appearance="outline">
-            <mat-label>Category</mat-label>
-            <mat-icon matSuffix>category</mat-icon>
+            <mat-label><mat-icon matSuffix>category</mat-icon> Category</mat-label>
             <input formControlName="category" matInput placeholder="Category">
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Project Name</mat-label>
+            <mat-label><mat-icon matSuffix>local_offer</mat-icon> Project Name</mat-label>
             <input formControlName="projectName" matInput placeholder="Project Name">
         </mat-form-field>
         <mat-form-field appearance="fill">
@@ -21,31 +20,23 @@
             <mat-date-range-picker #picker></mat-date-range-picker>
           </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>References</mat-label>
-            <mat-icon matSuffix>link</mat-icon>
+            <mat-label><mat-icon matSuffix>link</mat-icon> References</mat-label>
             <input formControlName="references" matInput placeholder="References">
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Contact Name</mat-label>
-            <mat-icon matSuffix>contacts</mat-icon>
-            <input formControlName="contactName" matInput placeholder="Contact Name">
+            <mat-label><mat-icon matSuffix>contacts</mat-icon> Contact Name</mat-label>
+            <input formControlName="contactName" matInput placeholder="Ex. Seiji Ozawa">
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Contact Email</mat-label>
-            <mat-icon matSuffix>email</mat-icon>
-            <input type="email" formControlName="contactEmail" matInput [formControl]="emailFormControl" placeholder="Ex. info@example.com">
-            <mat-error *ngIf="emailFormControl.hasError('email')">
-                Please enter a valid email address
-            </mat-error>
+            <mat-label><mat-icon matSuffix>email</mat-icon> Contact Email</mat-label>
+            <input type="email" formControlName="contactEmail" matInput [formControl]="emailFormControl" placeholder="Ex. info@mail.com"> 
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Contact Phone Number</mat-label>
-            <mat-icon matSuffix>phone</mat-icon>
+            <mat-label><mat-icon matSuffix>phone</mat-icon> Contact Phone Number</mat-label>
             <input type="number" formControlName="contactPhoneNumber" matInput placeholder="Ex. 3725512312">
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Cost</mat-label>
-            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <mat-label> <mat-icon matSuffix>euro_symbol</mat-icon> Cost</mat-label>
             <input formControlName="cost" matInput type="number" placeholder="€ ">
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -54,7 +45,7 @@
         </mat-form-field>
     </form>
 </div>
-<div mat-dialog-action [align]="'end'">
+<div mat-dialog-action [align]="'end'" style="margin-top: 25px;">
     <button mat-stroked-button mat-dialog-close style="color: orangered; border-radius: 20px; margin-right: 4px;">Close</button>
     <button mat-stroked-button (click)="addProject()" style="color: forestgreen; border-radius: 20px; margin-left: 4px;">{{ saveButton }}</button>
 </div>
