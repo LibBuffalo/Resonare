@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 @Component({
@@ -9,13 +9,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 })
 export class AddProjectComponent implements OnInit {
 
-  emailFormControl = new FormControl('', Validators.email);
-  projectForm !: FormGroup;
+  emailFormControl = new UntypedFormControl('', Validators.email);
+  projectForm !: UntypedFormGroup;
   saveButton: string = "Save";
   dialogTitel: string = "ADD PROJECT";
   
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: UntypedFormBuilder, 
     private api: ApiService, 
     private dialogRef: MatDialogRef<AddProjectComponent>,
     @Inject(MAT_DIALOG_DATA) public editData: any,
