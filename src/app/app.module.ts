@@ -31,6 +31,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSortModule,
     MatSidenavModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

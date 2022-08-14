@@ -28,12 +28,12 @@
     
         <ng-container matColumnDef="projectStartDate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Start Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.projectStartDate | date}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.projectStartDate | date }} </td>
         </ng-container>
     
         <ng-container matColumnDef="projectEndDate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Project End Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.projectEndDate | date}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.projectEndDate | date }} </td>
         </ng-container>
 
         <ng-container matColumnDef="action">

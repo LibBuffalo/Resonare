@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { ApiService } from '../services/api.service';
 
+
+
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',

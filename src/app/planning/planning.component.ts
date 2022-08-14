@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./planning.component.scss']
 })
 export class PlanningComponent implements OnInit {
-
+  selected: Date | null | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
 }

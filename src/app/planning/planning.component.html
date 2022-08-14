@@ -1,1 +1,9 @@
-<p>planning is working</p>
+<div class="container">
+    <mat-card class="calendar-card">
+        <mat-calendar [(selected)]="selected"></mat-calendar>
+    </mat-card>
+</div>
+
+<div class="container selected-date"><p>Selected date: {{ selected | date:'fullDate' }}</p></div>
+
+
