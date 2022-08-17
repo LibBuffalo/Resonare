@@ -23,14 +23,10 @@
         </mat-card>
     </div>
 </div>
-<google-chart
-  [title]="chart.title"
-  [type]="chart.type"
-  [data]="chart.data"
-  [columns]="chart.columnNames"
-  [options]="chart.options"
->
-</google-chart>
+<div class="divChart">
+    <canvas id="projectsTasksChart"></canvas>
+</div>
+
 <div *ngIf='!_data'>
     Loading...
 </div>

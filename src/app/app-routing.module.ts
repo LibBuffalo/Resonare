@@ -10,50 +10,20 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
 
 const routes: Routes = [
-  { 
-    path: 'projects',
-    component: ProjectsListComponent,
-    children: [
-      // {
-      //   path: 'detail/:id',
-      //   component: ProjectDetailComponent
-      // },
-      // {
-      //   path: 'sidenav/:id',
-      //   component: SidenavComponent
-      // }
-    ]
-  },
-  { 
+  { path: 'projects', component: ProjectsListComponent },
+  {
     path: 'tasks',
-    component: TasksListComponent, 
-    children: [
-      {
-        path: 'detail/:id',
-        component: TaskDetailComponent
-      }
-    ]
+    component: TasksListComponent,
+    children: [{ path: 'detail/:id', component: TaskDetailComponent }],
   },
-  { 
-    path: 'planning',
-    component: PlanningComponent
-  },
-  { 
-    path: 'sidenav',
-    component: SidenavComponent
-  },
-  {
-    path: 'project-detail/:id',
-    component: ProjectDetailComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  }
+  { path: 'planning', component: PlanningComponent },
+  { path: 'sidenav', component: SidenavComponent },
+  { path: 'project-detail/:id', component: ProjectDetailComponent },
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

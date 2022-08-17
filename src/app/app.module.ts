@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
 import { PlanningComponent } from './planning/planning.component';
@@ -32,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -69,9 +70,10 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatSidenavModule,
     MatCardModule,
     MatGridListModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    NgChartsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
