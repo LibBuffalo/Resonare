@@ -33,6 +33,8 @@ import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgChartsModule } from 'ng2-charts';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { NgChartsModule } from 'ng2-charts';
     AddProjectComponent,
     SidenavComponent,
     HomeComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatGridListModule,
     GoogleChartsModule,
     NgChartsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

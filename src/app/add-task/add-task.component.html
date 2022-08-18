@@ -1,0 +1,37 @@
+<h1 mat-dialog-title style="text-transform: uppercase; font-weight: bold; text-align: center;">{{ dialogTitel }}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="taskForm">
+        <mat-form-field appearance="fill" (click)="getAllProjects()">
+            <mat-label><mat-icon matSuffix>category</mat-icon> Choose Project</mat-label>
+            <mat-select formControlName="projectName">
+                    <mat-option *ngFor="let project of projects" [value]="project.projectName">{{ project.projectName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label><mat-icon matSuffix>local_offer</mat-icon> Task Name</mat-label>
+            <input formControlName="taskName" matInput placeholder="Task Name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a task deadline</mat-label>
+            <input formControlName="taskDeadline" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label><mat-icon matSuffix>link</mat-icon> References</mat-label>
+            <input formControlName="references" matInput placeholder="References">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Comments</mat-label>
+            <textarea formControlName="comments" matInput placeholder="Comments"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'" style="margin-top: 25px;">
+    <button mat-stroked-button mat-dialog-close style="color: orangered; border-radius: 20px; margin-right: 4px;">Close</button>
+    <button mat-stroked-button (click)="addTask()" style="color: forestgreen; border-radius: 20px; margin-left: 4px;">{{ saveButton }}</button>
+</div>
+
+
+

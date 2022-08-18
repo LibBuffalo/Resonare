@@ -11,15 +11,12 @@ import { TasksListComponent } from './tasks-list/tasks-list.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsListComponent },
-  {
-    path: 'tasks',
-    component: TasksListComponent,
-    children: [{ path: 'detail/:id', component: TaskDetailComponent }],
-  },
+  { path: 'tasks', component: TasksListComponent },
   { path: 'planning', component: PlanningComponent },
   { path: 'sidenav', component: SidenavComponent },
   { path: 'project-detail/:id', component: ProjectDetailComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'task-detail/:id', component: TaskDetailComponent },
 ];
 
 @NgModule({

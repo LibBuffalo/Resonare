@@ -2,34 +2,56 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  postProject(data: any){
+  postProject(data: any) {
     return this.http.post<any>('http://localhost:3000/projectsList/', data);
-
   }
 
   getProject(id: string) {
-    return this.http.get(`http://localhost:3000/projectsList/${id}`)
+    return this.http.get(`http://localhost:3000/projectsList/${id}`);
   }
 
-  getProjects(){
+  getProjects() {
     return this.http.get<any>('http://localhost:3000/projectsList');
   }
 
-  putProject(data: any, id: number){
-    return this.http.put<any>("http://localhost:3000/projectsList/"+id, data);
+  putProject(data: any, id: number) {
+    return this.http.put<any>('http://localhost:3000/projectsList/' + id, data);
   }
 
-  deleteProject(id: number){
-    return this.http.delete<any>("http://localhost:3000/projectsList/"+id);
+  deleteProject(id: number) {
+    return this.http.delete<any>('http://localhost:3000/projectsList/' + id);
   }
 
-  getProjectDetails(id: number){
-    return this.http.get<any>("http://localhost:3000/projectsList/"+id);
+  getProjectDetails(id: number) {
+    return this.http.get<any>('http://localhost:3000/projectsList/' + id);
+  }
+
+  postTask(data: any) {
+    return this.http.post<any>('http://localhost:3000/tasksList/', data);
+  }
+
+  getTask(id: string) {
+    return this.http.get(`http://localhost:3000/tasksList/${id}`);
+  }
+
+  getTasks() {
+    return this.http.get<any>('http://localhost:3000/tasksList');
+  }
+
+  putTask(data: any, id: number) {
+    return this.http.put<any>('http://localhost:3000/tasksList/' + id, data);
+  }
+
+  deleteTask(id: number) {
+    return this.http.delete<any>('http://localhost:3000/tasksList/' + id);
+  }
+
+  getTaskDetails(id: number) {
+    return this.http.get<any>('http://localhost:3000/tasksList/' + id);
   }
 }

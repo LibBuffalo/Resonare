@@ -5,78 +5,98 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AddProjectComponent } from '../add-project/add-project.component';
+import { AddTaskComponent } from '../add-task/add-task.component';
 import { ApiService } from '../services/api.service';
-
 
 @Component({
   selector: 'app-projects-list',
   templateUrl: './projects-list.component.html',
-  styleUrls: ['./projects-list.component.scss']
+  styleUrls: ['./projects-list.component.scss'],
 })
-
-
 export class ProjectsListComponent implements OnInit {
-
-  displayedColumns: string[] = ['category', 'projectName', 'projectStartDate', 'projectEndDate', 'action'];
+  displayedColumns: string[] = [
+    'category',
+    'projectName',
+    'projectStartDate',
+    'projectEndDate',
+    'action',
+  ];
   dataSource!: MatTableDataSource<any>;
-  
-  _data: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private dialog: MatDialog, private api: ApiService, private router: Router){}
+  constructor(
+    private dialog: MatDialog,
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   openDialogAddProject() {
-    this.dialog.open(AddProjectComponent, {
-      width: '30%'
-    }).afterClosed().subscribe(val=>{
-      if(val === 'save'){
-        this.getAllProjects();
-      }
-
-    })
+    this.dialog
+      .open(AddProjectComponent, {
+        width: '30%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllProjects();
+        }
+      });
   }
 
-  openPageProjectDetails(row: any){
-    this.router.navigate([`project-detail/${row.id}`], {
-    })
+  openDialogAddTask() {
+    this.dialog.open(AddTaskComponent, {
+      width: '30%',
+    });
+    // .afterClosed()
+    // .subscribe((val) => {
+    //   if (val === 'save') {
+    //     this.getAllProjects();
+    //   }
+    // });
   }
-  
 
-  getAllProjects(){
+  openPageProjectDetails(row: any) {
+    this.router.navigate([`project-detail/${row.id}`], {});
+  }
+
+  getAllProjects() {
     this.api.getProjects().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
-      error:(err)=>{
-        alert("Error while fetching the projects data!")
-      }
-    })
+      error: (err) => {
+        alert('Error while fetching the projects data!');
+      },
+    });
   }
 
-  editProject(row: any){
-    this.dialog.open(AddProjectComponent, {
-      width: '30%',
-      data: row
-    }).afterClosed().subscribe(val=>{
-      if(val === 'update'){
-        this.getAllProjects();
-      }
-    })
+  editProject(row: any) {
+    this.dialog
+      .open(AddProjectComponent, {
+        width: '30%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'update') {
+          this.getAllProjects();
+        }
+      });
   }
 
-  deleteProject(id: number){
+  deleteProject(id: number) {
     this.api.deleteProject(id).subscribe({
-      next:(res)=>{
-        alert("Project Deleted Successfully");
+      next: (res) => {
+        alert('Project Deleted Successfully');
         this.getAllProjects();
       },
-      error:()=>{
-        alert("Error while deleting the project");
-      }
-    })
+      error: () => {
+        alert('Error while deleting the project');
+      },
+    });
   }
 
   applyFilter(event: Event) {
@@ -87,12 +107,8 @@ export class ProjectsListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  
+
   ngOnInit(): void {
     this.getAllProjects();
   }
-
-
 }
-
-
