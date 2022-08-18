@@ -20,19 +20,29 @@ export class TasksListComponent implements OnInit {
     'taskDeadline',
     'action',
   ];
-  dataSource!: MatTableDataSource<any>;
+  dataSource2!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  // addTaskButton() {
-  //   let project = new AddTask('Helikunst', 'Arrange meeting with partner');
-  //   console.log(project);
-  // }
+
   constructor(
     private api: ApiService,
     private dialog: MatDialog,
     private router: Router
   ) {}
+
+  openDialogAddTask() {
+    this.dialog
+      .open(AddTaskComponent, {
+        width: '30%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllTasks();
+        }
+      });
+  }
 
   openPageTaskDetails(row: any) {
     this.router.navigate([`task-detail/${row.id}`], {});
@@ -41,9 +51,10 @@ export class TasksListComponent implements OnInit {
   getAllTasks() {
     this.api.getTasks().subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        console.log(res);
+        this.dataSource2 = new MatTableDataSource(res);
+        this.dataSource2.paginator = this.paginator;
+        this.dataSource2.sort = this.sort;
       },
       error: (err) => {
         alert('Error while fetching the task data!');
@@ -79,26 +90,14 @@ export class TasksListComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource2.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if (this.dataSource2.paginator) {
+      this.dataSource2.paginator.firstPage();
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllTasks();
+  }
 }
-
-// class AddTask {
-//   category: string;
-//   taskName: any;
-//   taskComment: any;
-//   deadline: any;
-
-//   constructor(_category: string, _taskName: any) {
-//     this.category = _category;
-//     this.taskName = _taskName;
-//     this.taskComment = '';
-//     this.deadline = '';
-//   }
-// }

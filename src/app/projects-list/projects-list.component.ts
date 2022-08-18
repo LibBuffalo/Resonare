@@ -25,6 +25,7 @@ export class ProjectsListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
   constructor(
     private dialog: MatDialog,
     private api: ApiService,
@@ -45,15 +46,16 @@ export class ProjectsListComponent implements OnInit {
   }
 
   openDialogAddTask() {
-    this.dialog.open(AddTaskComponent, {
-      width: '30%',
-    });
-    // .afterClosed()
-    // .subscribe((val) => {
-    //   if (val === 'save') {
-    //     this.getAllProjects();
-    //   }
-    // });
+    this.dialog
+      .open(AddTaskComponent, {
+        width: '30%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllProjects();
+        }
+      });
   }
 
   openPageProjectDetails(row: any) {

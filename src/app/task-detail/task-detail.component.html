@@ -1,1 +1,28 @@
-<p>task-detail works!</p>
+
+<div *ngIf='_data' class="container">
+    <div>
+        <mat-card class="card">
+            <mat-card-title-group>
+                <mat-card-title>{{ _data.taskName }}</mat-card-title>
+                <mat-card-subtitle>{{ _data.projectName }}</mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
+                <h4 class="sameLine" ><strong>Task Added Date: </strong></h4><p class="sameLine">{{ _data.taskDate | date:'fullDate' }}</p><br>
+                <h4 class="sameLine"><strong>Task Deadline: </strong></h4><p class="sameLine">{{ _data.taskDeadline | date:'fullDate' }}</p><br>
+                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _data.references }}</p><br>
+                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _data.comments }}</p><br>
+            </mat-card-content>
+            <mat-card-actions align='end'>
+                <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editTaskDetails(_data)">EDIT</button>
+                <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backTasksListPage()">BACK</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<div class="divChart">
+    <canvas id="projectsTasksChart"></canvas>
+</div>
+
+<div *ngIf='!_data'>
+    Loading...
+</div>

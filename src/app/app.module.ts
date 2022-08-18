@@ -35,6 +35,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { NgChartsModule } from 'ng2-charts';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,10 @@ import { MatSelectModule } from '@angular/material/select';
     GoogleChartsModule,
     NgChartsModule,
     MatSelectModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
