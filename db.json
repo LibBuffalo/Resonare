@@ -27,19 +27,6 @@
       "id": 6
     },
     {
-      "category": "ESL",
-      "projectName": "Jõulukontsert",
-      "projectStartDate": "2022-12-23T22:00:00.000Z",
-      "projectEndDate": "2022-12-23T22:00:00.000Z",
-      "references": "",
-      "contactName": "Mariell Aren",
-      "contactEmail": "mariell@gmail.com",
-      "contactPhoneNumber": 3729911223,
-      "cost": 2500,
-      "comments": "Jõulukas",
-      "id": 7
-    },
-    {
       "category": "Voces Tallinn",
       "projectName": "Uus projekt",
       "projectStartDate": "2022-08-05T21:00:00.000Z",

@@ -89,16 +89,18 @@ export class ProjectsListComponent implements OnInit {
       });
   }
 
-  deleteProject(id: number) {
-    this.api.deleteProject(id).subscribe({
-      next: (res) => {
-        alert('Project Deleted Successfully');
-        this.getAllProjects();
-      },
-      error: () => {
-        alert('Error while deleting the project');
-      },
-    });
+  deleteProject(id: number, projectName: any) {
+    if (confirm(`Are you sure to delete project ${projectName}`)) {
+      this.api.deleteProject(id).subscribe({
+        next: (res) => {
+          alert('Project Deleted Successfully');
+          this.getAllProjects();
+        },
+        error: () => {
+          alert('Error while deleting the project');
+        },
+      });
+    }
   }
 
   applyFilter(event: Event) {

@@ -76,16 +76,18 @@ export class TasksListComponent implements OnInit {
       });
   }
 
-  deleteTask(id: number) {
-    this.api.deleteTask(id).subscribe({
-      next: (res) => {
-        alert('Task Deleted Successfully');
-        this.getAllTasks();
-      },
-      error: () => {
-        alert('Error while deleting the task');
-      },
-    });
+  deleteTask(id: number, taskName: any) {
+    if (confirm(`Are you sure to delete ${taskName}`)) {
+      this.api.deleteTask(id).subscribe({
+        next: (res) => {
+          alert('Task Deleted Successfully');
+          this.getAllTasks();
+        },
+        error: () => {
+          alert('Error while deleting the task');
+        },
+      });
+    }
   }
 
   applyFilter(event: Event) {

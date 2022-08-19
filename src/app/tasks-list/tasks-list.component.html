@@ -39,7 +39,7 @@
           <td mat-cell *matCellDef="let row">
             <button type="button" class="button" mat-flat-button (click)="editTask(row)"><mat-icon style="color: forestgreen; margin-right: 4px;">edit</mat-icon>edit</button>
             <button type="button" class="button" mat-flat-button (click)="openPageTaskDetails(row)"><mat-icon style="color: royalblue;margin-right: 4px;">info</mat-icon >details</button>
-            <button type="button" class="button" mat-flat-button (click)="deleteTask(row.id)"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
+            <button type="button" class="button" mat-flat-button (click)="deleteTask(row.id, row.taskName)"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
             <button type="button" class="button" mat-flat-button><mat-icon style="margin-right: 4px;">archive</mat-icon>archive</button>
           </td>
         </ng-container>
