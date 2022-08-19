@@ -1,9 +1,6 @@
-<div class="container">
-    <mat-card class="calendar-card">
-        <mat-calendar [(selected)]="selected"></mat-calendar>
-    </mat-card>
-</div>
+<full-calendar [options]='calendarOptions'></full-calendar>
 
-<div class="container selected-date"><p>Selected date: {{ selected | date:'fullDate' }}</p></div>
+
+
 
 
