@@ -1,13 +1,19 @@
-h1 {
-  color: white;
-  font-size: 500%;
-}
+// h1 {
+//   color: white;
+//   font-size: 500%;
+// }
 
-p {
-  color: white;
-}
+// p {
+//   color: white;
+// }
 
-mad-grid-tile {
-  color: white;
-  border: solid;
+// mad-grid-tile {
+//   color: white;
+//   border: solid;
+// }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
