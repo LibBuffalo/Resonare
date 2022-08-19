@@ -34,6 +34,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { NgChartsModule } from 'ng2-charts';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { MatSelectModule } from '@angular/material/select';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MatSelectModule } from '@angular/material/select';
     SidenavComponent,
     HomeComponent,
     AddTaskComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

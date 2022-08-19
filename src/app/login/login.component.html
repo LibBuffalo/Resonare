@@ -1,0 +1,34 @@
+<h1 mat-dialog-title style="text-transform: uppercase; font-weight: bold; text-align: center;">{{ dialogTitel }}</h1>
+<div mat-dialog-content>
+    <!-- <div class="container">
+        <img src="assets/resonare_logo.svg" alt="Resonare Logo">
+    </div> -->
+    <form [formGroup]="loginForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'" style="margin-top: 25px;">
+    <button mat-stroked-button mat-dialog-close style="color: orangered; border-radius: 20px; margin-right: 4px;">Close</button>
+    <button mat-stroked-button (click)="login()" style="color: forestgreen; border-radius: 20px; margin-left: 4px;">Login</button>
+</div>
+
