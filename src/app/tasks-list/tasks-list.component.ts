@@ -51,7 +51,6 @@ export class TasksListComponent implements OnInit {
   getAllTasks() {
     this.api.getTasks().subscribe({
       next: (res) => {
-        console.log(res);
         this.dataSource2 = new MatTableDataSource(res);
         this.dataSource2.paginator = this.paginator;
         this.dataSource2.sort = this.sort;

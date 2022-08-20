@@ -35,6 +35,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     AddTaskComponent,
     LoginComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

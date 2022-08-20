@@ -1,13 +1,15 @@
 <mat-toolbar>
-  <button mat-icon-button [routerLink]="'home'"><mat-icon>home</mat-icon></button>
-  <!-- <a mat-button [routerLink]="'home'"><h1>Resonare</h1></a> -->
-  <span class="example-spacer"></span>
-
-  <a mat-button [routerLink]="'projects'">Projects</a>
-  <button mat-icon-button [routerLink]="'tasks'"><mat-icon>assignment</mat-icon></button>
-  <button mat-icon-button [routerLink]="'planning'"><mat-icon>calendar_today</mat-icon></button>
-  <button mat-icon-button (click)="openDialogLogin()"><mat-icon>account_circle</mat-icon></button>
+    <button mat-icon-button [routerLink]="'home'" class="hover-class"><mat-icon>home</mat-icon></button>
+    <button mat-icon-button [routerLink]="'about-us'" class="hover-class"><mat-icon>business</mat-icon></button>
+    <button mat-icon-button [routerLink]="'contact-us'" class="hover-class"><mat-icon>contact_support</mat-icon></button>
+    <!-- <a mat-button [routerLink]="'home'"><h1>Resonare</h1></a> -->
+    <span class="example-spacer"></span>
+  
+    <a mat-button [routerLink]="'projects'" class="hover-class">PROJECTS</a>
+    <button mat-icon-button [routerLink]="'tasks'" class="hover-class"><mat-icon>assignment</mat-icon></button>
+    <button mat-icon-button [routerLink]="'planning'" class="hover-class"><mat-icon>calendar_today</mat-icon></button>
 </mat-toolbar>
-
-
+  
+  
 <mat-divider></mat-divider>
+

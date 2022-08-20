@@ -14,7 +14,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent implements OnInit {
-  emailFormControl = new UntypedFormControl('', Validators.email);
+  emailFormControl = new UntypedFormControl('', Validators.required);
   taskForm!: UntypedFormGroup;
   saveButton: string = 'Save';
   dialogTitel: string = 'ADD TASK';
@@ -36,7 +36,6 @@ export class AddTaskComponent implements OnInit {
         this.projects = this.projectsResponse.map((_val: any) => {
           return _val;
         });
-        console.log(this.projects);
       },
       error: (err) => {
         alert('Error while fetching the projects data!');
@@ -45,6 +44,8 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllProjects();
+
     this.taskForm = this.formBuilder.group({
       projectName: [''],
       taskName: ['', Validators.required],

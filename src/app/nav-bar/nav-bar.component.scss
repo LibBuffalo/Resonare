@@ -1,8 +1,12 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-
 mat-toolbar {
   background-color: #272727;
   color: bisque;
+  width: 100%;
+}
+
+.hover-class:hover {
+  color: white;
 }

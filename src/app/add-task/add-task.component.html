@@ -1,7 +1,7 @@
 <h1 mat-dialog-title style="text-transform: uppercase; font-weight: bold; text-align: center;">{{ dialogTitel }}</h1>
 <div mat-dialog-content>
     <form [formGroup]="taskForm">
-        <mat-form-field appearance="fill" (click)="getAllProjects()">
+        <mat-form-field appearance="fill">
             <mat-label><mat-icon matSuffix>category</mat-icon> Choose Project</mat-label>
             <mat-select formControlName="projectName">
                     <mat-option *ngFor="let project of projects" [value]="project.projectName">{{ project.projectName }}</mat-option>

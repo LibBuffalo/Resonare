@@ -3,6 +3,7 @@ import {
   FormControl,
   FormGroupDirective,
   NgForm,
+  UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit {
   passwordFormControl = new FormControl('', [Validators.required]);
 
   matcher = new MyErrorStateMatcher();
-  constructor() {}
+  formBuilder: any;
+  constructor(private formBuiler: UntypedFormBuilder) {}
   login() {}
 
   ngOnInit(): void {}

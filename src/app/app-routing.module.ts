@@ -1,6 +1,7 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PlanningComponent } from './planning/planning.component';
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'project-detail/:id', component: ProjectDetailComponent },
   { path: 'home', component: HomeComponent },
   { path: 'task-detail/:id', component: TaskDetailComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: LoginComponent },
+  { path: 'about-us', component: AboutComponent },
+  { path: 'contact-us', component: ContactComponent },
 ];
 
 @NgModule({
