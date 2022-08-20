@@ -11,7 +11,7 @@ import { ApiService } from '../services/api.service';
 })
 export class TaskDetailComponent implements OnInit {
   _taskId: string;
-  _data: any;
+  _tasksData: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,11 +22,11 @@ export class TaskDetailComponent implements OnInit {
     this._taskId = this.route.snapshot.paramMap.get('id') || '';
   }
 
-  editTaskDetails(_data: any) {
+  editTaskDetails(_tasksData: any) {
     this.dialog
       .open(AddTaskComponent, {
         width: '30%',
-        data: _data,
+        data: _tasksData,
       })
       .afterClosed()
       .subscribe((val) => {
@@ -40,10 +40,14 @@ export class TaskDetailComponent implements OnInit {
     this.router.navigate(['tasks'], {});
   }
 
+  backCalendarPage() {
+    this.router.navigate(['planning'], {});
+  }
+
   ngOnInit(): void {
     this.api.getTask(this._taskId).subscribe({
       next: (res) => {
-        this._data = res;
+        this._tasksData = res;
       },
       error: (err) => {
         alert('Error while fetching the tasks data!');

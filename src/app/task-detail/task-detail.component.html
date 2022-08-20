@@ -1,20 +1,21 @@
 
-<div *ngIf='_data' class="container">
+<div *ngIf='_tasksData' class="container">
     <div>
         <mat-card class="card">
             <mat-card-title-group>
-                <mat-card-title>{{ _data.taskName }}</mat-card-title>
-                <mat-card-subtitle>{{ _data.projectName }}</mat-card-subtitle>
+                <mat-card-title>{{ _tasksData.taskName }}</mat-card-title>
+                <mat-card-subtitle>{{ _tasksData.projectName }}</mat-card-subtitle>
             </mat-card-title-group>
             <mat-card-content>
-                <h4 class="sameLine" ><strong>Task Added Date: </strong></h4><p class="sameLine">{{ _data.taskDate | date:'fullDate' }}</p><br>
-                <h4 class="sameLine"><strong>Task Deadline: </strong></h4><p class="sameLine">{{ _data.taskDeadline | date:'fullDate' }}</p><br>
-                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _data.references }}</p><br>
-                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _data.comments }}</p><br>
+                <h4 class="sameLine" ><strong>Task Added Date: </strong></h4><p class="sameLine">{{ _tasksData.taskDate | date:'fullDate' }}</p><br>
+                <h4 class="sameLine"><strong>Task Deadline: </strong></h4><p class="sameLine">{{ _tasksData.taskDeadline | date:'fullDate' }}</p><br>
+                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _tasksData.references }}</p><br>
+                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _tasksData.comments }}</p><br>
             </mat-card-content>
             <mat-card-actions align='end'>
-                <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editTaskDetails(_data)">EDIT</button>
-                <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backTasksListPage()">BACK</button>
+                <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editTaskDetails(_tasksData)">EDIT</button>
+                <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backTasksListPage()">TASKS LIST</button>
+                <button mat-stroked-button style="color: orangered; border-radius: 20px; margin-left: 4px;" (click)="backCalendarPage()">CALENDAR</button>
             </mat-card-actions>
         </mat-card>
     </div>
@@ -23,6 +24,6 @@
     <canvas id="projectsTasksChart"></canvas>
 </div>
 
-<div *ngIf='!_data'>
+<div *ngIf='!_tasksData'>
     Loading...
 </div>

@@ -36,7 +36,7 @@
       "contactEmail": "malle@mail.jp",
       "contactPhoneNumber": 372564737,
       "cost": 4880,
-      "comments": "Kunagi tuleb. New comment",
+      "comments": "Kunagi tuleb. New comment. Very very New",
       "id": 8
     },
     {
@@ -119,6 +119,15 @@
       "references": "haapsalu.ee",
       "comments": "Helista",
       "id": 17
+    },
+    {
+      "projectName": "Haapsalu Suvekool",
+      "taskName": "Conductor",
+      "taskDate": "2022-08-20T17:32:42.417Z",
+      "taskDeadline": "2022-08-30T21:00:00.000Z",
+      "references": "conductor.com",
+      "comments": "Hire conductor",
+      "id": 18
     }
   ],
   "comments": [

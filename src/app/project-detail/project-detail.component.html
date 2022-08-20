@@ -1,33 +1,49 @@
 
-<div *ngIf='_data' class="container">
+<div *ngIf='_projectsData' class="container">
     <div>
         <mat-card class="card">
             <mat-card-title-group>
-                <mat-card-title>{{ _data.projectName }}</mat-card-title>
-                <mat-card-subtitle>{{ _data.category }}</mat-card-subtitle>
+                <mat-card-title>TASK NAME</mat-card-title>
+                <mat-card-subtitle>{{ _projectsData.category }}</mat-card-subtitle>
             </mat-card-title-group>
             <mat-card-content>
-                <h4 class="sameLine" ><strong>Project Start Date: </strong></h4><p class="sameLine">{{ _data.projectStartDate | date:'fullDate' }}</p><br>
-                <h4 class="sameLine"><strong>Project End Date: </strong></h4><p class="sameLine">{{ _data.projectEndDate | date:'fullDate' }}</p><br>
-                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _data.references }}</p><br>
-                <h4 class="sameLine"><strong>Contact Name: </strong></h4><p class="sameLine">{{ _data.contactName }}</p><br>
-                <h4 class="sameLine"><strong>Contact Email: </strong></h4><p class="sameLine">{{ _data.contactEmail }}</p><br>
-                <h4 class="sameLine"><strong>Contact Phone Number: </strong></h4><p class="sameLine">{{ _data.contactPhoneNumber }}</p><br>
-                <h4 class="sameLine"><strong>Project Cost: </strong></h4><p class="sameLine">{{ _data.cost }} €</p><br>
-                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _data.comments }}</p><br>
+                <h4 class="sameLine"><strong>Task Name: </strong></h4><p class="sameLine">Here is the task name</p><br>
+                <h4 class="sameLine"><strong>Task Date: </strong></h4><p class="sameLine">Here is the date the task was added</p><br>
+                <h4 class="sameLine"><strong>Task Deadline: </strong></h4><p class="sameLine">Here is the task deadline</p><br>
+                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">The references</p><br>
+                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">The comments</p><br>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div>
+        <mat-card class="card">
+            <mat-card-title-group>
+                <mat-card-title>{{ _projectsData.projectName }}</mat-card-title>
+                <mat-card-subtitle>{{ _projectsData.category }}</mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
+                <h4 class="sameLine"><strong>Project Start Date: </strong></h4><p class="sameLine">{{ _projectsData.projectStartDate | date:'fullDate' }}</p><br>
+                <h4 class="sameLine"><strong>Project End Date: </strong></h4><p class="sameLine">{{ _projectsData.projectEndDate | date:'fullDate' }}</p><br>
+                <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _projectsData.references }}</p><br>
+                <h4 class="sameLine"><strong>Contact Name: </strong></h4><p class="sameLine">{{ _projectsData.contactName }}</p><br>
+                <h4 class="sameLine"><strong>Contact Email: </strong></h4><p class="sameLine">{{ _projectsData.contactEmail }}</p><br>
+                <h4 class="sameLine"><strong>Contact Phone Number: </strong></h4><p class="sameLine">{{ _projectsData.contactPhoneNumber }}</p><br>
+                <h4 class="sameLine"><strong>Project Cost: </strong></h4><p class="sameLine">{{ _projectsData.cost }} €</p><br>
+                <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _projectsData.comments }}</p><br>
             </mat-card-content>
             <mat-card-actions align='end'>
-                <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editProjectDetails(_data)">EDIT</button>
-                <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backProjectListPage()">BACK</button>
+                <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editProjectDetails(_projectsData)">EDIT</button>
+                <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backProjectListPage()">PROJECTS LIST</button>
+                <button mat-stroked-button style="color: orangered; border-radius: 20px; margin-left: 4px;" (click)="backCalendarPage()">CALENDAR</button>
             </mat-card-actions>
         </mat-card>
     </div>
 </div>
-<div class="divChart">
+<!-- <div class="divChart">
     <canvas id="projectsTasksChart"></canvas>
-</div>
+</div> -->
 
-<div *ngIf='!_data'>
+<div *ngIf='!_projectsData'>
     Loading...
 </div>
 

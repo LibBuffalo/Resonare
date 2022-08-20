@@ -5,6 +5,7 @@ import {
 } from '@fullcalendar/web-component';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ApiService } from '../services/api.service';
+import { DatePipe } from '@angular/common';
 
 defineFullCalendarElement();
 
@@ -18,19 +19,35 @@ export class PlanningComponent {
   projectValues: any[] = [];
   tasksResponse: any[] = [];
   taskValues: any[] = [];
-  Events: any[] = [];
+  // Events: any[] = [];
+  calendarOptions: any;
+
+  constructor(private api: ApiService) {}
 
   eventValuesForProjects: any = (val: any) => {
+    const datepipe: DatePipe = new DatePipe('en-ET');
+    let formattedDate = datepipe.transform(val.projectStartDate, 'YYYY-MM-dd');
     return {
       title: val.projectName,
-      start: val.projectStartDate,
+      start: formattedDate,
+      url: 'http://localhost:4200/project-detail/' + val.id,
+      // start: '2022-08-20',
+      color: 'red',
+      textColor: 'white',
     };
   };
 
   eventValuesForTasks: any = (val: any) => {
+    const datepipe: DatePipe = new DatePipe('en-ET');
+    let formattedDate = datepipe.transform(val.taskDeadline, 'YYYY-MM-dd');
+    console.log(formattedDate);
+    console.log(val.taskDeadline);
     return {
       title: val.taskName,
-      start: val.taskDeadline,
+      start: formattedDate,
+      // start: '2022-08-20',
+      color: 'red',
+      textColor: 'green',
     };
   };
 
@@ -41,7 +58,6 @@ export class PlanningComponent {
         this.projectValues = this.projectsResponse.map(
           this.eventValuesForProjects
         );
-        console.log(this.projectValues);
       },
     });
   }
@@ -51,7 +67,6 @@ export class PlanningComponent {
       next: (res) => {
         this.tasksResponse = res;
         this.taskValues = this.tasksResponse.map(this.eventValuesForTasks);
-        console.log(this.taskValues);
       },
       error: (err) => {
         alert('Error while fetching the Tasks data!');
@@ -59,26 +74,25 @@ export class PlanningComponent {
     });
   }
 
-  calendarOptions: CalendarOptions = {
-    plugins: [dayGridPlugin],
-    headerToolbar: {
-      left: 'prev, next today',
-      center: 'title',
-      right: 'dayGridMonth, dayGridWeek, dayGridDay',
-    },
-    // events: [
-    //   { title: 'Test Event', start: '2022-08-20', allDay: true },
-    //   { title: 'Second Event', start: '2022-08-23', allDay: true },
-    // ],
-    events: this.projectValues,
-  };
-
-  constructor(private api: ApiService) {}
-
   ngOnInit() {
     this.getAllValuesForTasksEvents();
     this.getAllValuesForProjectsEvents();
-    console.log(this.projectValues);
-    setTimeout(() => console.log(this.calendarOptions), 3000);
+    setTimeout(() => {
+      this.calendarOptions = {
+        plugins: [dayGridPlugin],
+        headerToolbar: {
+          left: 'prev, next today',
+          center: 'title',
+          right: 'dayGridMonth, dayGridWeek, dayGridDay',
+        },
+        editable: true,
+        navLinks: true,
+        events: this.projectValues,
+        eventClick: function (info: any) {
+          info.event.url;
+        },
+      };
+      console.log(this.calendarOptions);
+    }, 90);
   }
 }

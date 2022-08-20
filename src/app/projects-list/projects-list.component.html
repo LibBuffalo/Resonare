@@ -12,35 +12,35 @@
     </mat-form-field>
     
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataSource" matSort>
+      <table mat-table [dataSource]="dataSource" matSort >
     
-        <ng-container matColumnDef="category">
+        <ng-container matColumnDef="category" >
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-          <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+          <td mat-cell *matCellDef="let row" (click)="openPageProjectDetails(row)"> {{row.category}} </td>
         </ng-container>
     
         <ng-container matColumnDef="projectName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.projectName}} </td>
+          <td mat-cell *matCellDef="let row" (click)="openPageProjectDetails(row)"> {{row.projectName}} </td>
         </ng-container>
     
         <ng-container matColumnDef="projectStartDate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Start Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.projectStartDate | date }} </td>
+          <td mat-cell *matCellDef="let row" (click)="openPageProjectDetails(row)"> {{row.projectStartDate | date }} </td>
         </ng-container>
     
         <ng-container matColumnDef="projectEndDate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Project End Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.projectEndDate | date }} </td>
+          <td mat-cell *matCellDef="let row" (click)="openPageProjectDetails(row)"> {{row.projectEndDate | date }} </td>
         </ng-container>
 
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-          <td mat-cell *matCellDef="let row">
-            <button type="button" class="button" mat-flat-button (click)="editProject(row)"><mat-icon style="color: forestgreen; margin-right: 4px;">edit</mat-icon>edit</button>
-            <button type="button" class="button" mat-flat-button (click)="openPageProjectDetails(row)"><mat-icon style="color: royalblue;margin-right: 4px;">info</mat-icon >details</button>
-            <button type="button" class="button" mat-flat-button (click)="deleteProject(row.id, row.projectName)"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
-            <button type="button" class="button" mat-flat-button><mat-icon style="margin-right: 4px;">archive</mat-icon>archive</button>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+          <td mat-cell *matCellDef="let row" (click)="openPageProjectDetails(row)">
+            <button type="button" class="button" mat-flat-button (click)="editProject(row)" style="margin-right: 10px;"><mat-icon style="color: forestgreen; margin-right: 4px;">edit</mat-icon>edit</button>
+            <button type="button" class="button" mat-flat-button (click)="openPageProjectDetails(row)" style="margin-right: 10px;"><mat-icon style="color: royalblue;margin-right: 4px;">info</mat-icon >details</button>
+            <button type="button" class="button" mat-flat-button (click)="deleteProject(row.id, row.projectName)" style="margin-right: 10px;"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
+            <button type="button" class="button" mat-flat-button><mat-icon style="margin-right: 4px;" style="margin-right: 10px;">archive</mat-icon>archive</button>
           </td>
         </ng-container>
     
