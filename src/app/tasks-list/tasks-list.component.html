@@ -13,7 +13,25 @@
     
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource2" matSort>
-    
+
+        <!-- <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          [aria-label]="checkboxLabel(row)">
+            </mat-checkbox>
+          </td>
+
+        </ng-container> -->
+
         <ng-container matColumnDef="taskName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Name</th>
           <td mat-cell *matCellDef="let row" (click)="openPageTaskDetails(row)"> {{row.taskName}} </td>
@@ -31,16 +49,16 @@
     
         <ng-container matColumnDef="taskDeadline">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Deadline </th>
-          <td mat-cell *matCellDef="let row" (click)="openPageTaskDetails(row)"> {{row.taskDeadline | date }} </td>
+          <td mat-cell *matCellDef="let row" (click)="openPageTaskDetails(row)" style="text-align: center; background-color: bisque;"> {{row.taskDeadline | date }} </td>
         </ng-container>
 
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
           <td mat-cell *matCellDef="let row" (click)="openPageTaskDetails(row)">
-            <button type="button" class="button" mat-flat-button (click)="editTask(row)" style="margin-right: 10px;"><mat-icon style="color: forestgreen; margin-right: 4px;">edit</mat-icon>edit</button>
+            <button type="button" class="button" mat-flat-button (click)="editTask($event, row)" style="margin-right: 10px;"><mat-icon style="color: forestgreen; margin-right: 4px;">edit</mat-icon>edit</button>
             <button type="button" class="button" mat-flat-button (click)="openPageTaskDetails(row)" style="margin-right: 10px;"><mat-icon style="color: royalblue;margin-right: 4px;">info</mat-icon >details</button>
-            <button type="button" class="button" mat-flat-button (click)="deleteTask(row.id, row.taskName)" style="margin-right: 10px;"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
-            <button type="button" class="button" mat-flat-button><mat-icon style="margin-right: 10px;">archive</mat-icon>archive</button>
+            <button type="button" class="button" mat-flat-button (click)="deleteTask($event, row.id, row.taskName)" style="margin-right: 10px;"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
+            <button type="button" class="button" mat-flat-button (click)="archiveTask($event)"><mat-icon style="margin-right: 10px;">archive</mat-icon>archive</button>
           </td>
         </ng-container>
     
@@ -53,7 +71,7 @@
         </tr>
       </table>
     
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[100, 150, 300, 500]" aria-label="Select page of tasks"></mat-paginator>
     </div>
   </div>
 </div>

@@ -7,8 +7,8 @@
                 <mat-card-subtitle>{{ _tasksData.projectName }}</mat-card-subtitle>
             </mat-card-title-group>
             <mat-card-content>
-                <h4 class="sameLine" ><strong>Task Added Date: </strong></h4><p class="sameLine">{{ _tasksData.taskDate | date:'fullDate' }}</p><br>
-                <h4 class="sameLine"><strong>Task Deadline: </strong></h4><p class="sameLine">{{ _tasksData.taskDeadline | date:'fullDate' }}</p><br>
+                <h4 class="sameLine" ><strong>Task Added Date: </strong></h4><p class="sameLine">{{ _tasksData.taskDate | date:'E, d MMM, y' }}</p><br>
+                <h4 class="sameLine"><strong>Task Deadline: </strong></h4><p class="sameLine">{{ _tasksData.taskDeadline | date:'E, d MMM, y' }}</p><br>
                 <h4 class="sameLine"><strong>References: </strong></h4><p class="sameLine">{{ _tasksData.references }}</p><br>
                 <h4 class="sameLine"><strong>Comments: </strong></h4><p class="sameLine">{{ _tasksData.comments }}</p><br>
             </mat-card-content>

@@ -20,19 +20,31 @@ export class PlanningComponent {
   tasksResponse: any[] = [];
   taskValues: any[] = [];
   // Events: any[] = [];
-  calendarOptions: any;
+  calendarOptions: any = {
+    plugins: [dayGridPlugin],
+    headerToolbar: {
+      left: 'prev, next today',
+      center: 'title',
+      right: 'dayGridMonth, dayGridWeek, dayGridDay',
+    },
+    editable: true,
+    navLinks: true,
+    eventClick: function (info: any) {
+      info.event.url;
+    },
+    displayEventTime: false,
+  };
 
   constructor(private api: ApiService) {}
 
   eventValuesForProjects: any = (val: any) => {
-    const datepipe: DatePipe = new DatePipe('en-ET');
-    let formattedDate = datepipe.transform(val.projectStartDate, 'YYYY-MM-dd');
     return {
       title: val.projectName,
-      start: formattedDate,
+      start: val.projectStartDate,
+      end: val.projectEndDate,
+
       url: 'http://localhost:4200/project-detail/' + val.id,
-      // start: '2022-08-20',
-      color: 'red',
+      color: '#608494',
       textColor: 'white',
     };
   };
@@ -40,14 +52,12 @@ export class PlanningComponent {
   eventValuesForTasks: any = (val: any) => {
     const datepipe: DatePipe = new DatePipe('en-ET');
     let formattedDate = datepipe.transform(val.taskDeadline, 'YYYY-MM-dd');
-    console.log(formattedDate);
-    console.log(val.taskDeadline);
     return {
       title: val.taskName,
       start: formattedDate,
-      // start: '2022-08-20',
-      color: 'red',
-      textColor: 'green',
+      url: 'http://localhost:4200/task-detail/' + val.id,
+      color: '#a62ec4',
+      textColor: 'white',
     };
   };
 
@@ -79,20 +89,9 @@ export class PlanningComponent {
     this.getAllValuesForProjectsEvents();
     setTimeout(() => {
       this.calendarOptions = {
-        plugins: [dayGridPlugin],
-        headerToolbar: {
-          left: 'prev, next today',
-          center: 'title',
-          right: 'dayGridMonth, dayGridWeek, dayGridDay',
-        },
-        editable: true,
-        navLinks: true,
-        events: this.projectValues,
-        eventClick: function (info: any) {
-          info.event.url;
-        },
+        ...this.calendarOptions,
+        events: [...this.projectValues, ...this.taskValues],
       };
-      console.log(this.calendarOptions);
-    }, 90);
+    }, 750);
   }
 }

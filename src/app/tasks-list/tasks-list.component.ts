@@ -61,7 +61,8 @@ export class TasksListComponent implements OnInit {
     });
   }
 
-  editTask(row: any) {
+  editTask(event: any, row: any) {
+    event.stopPropagation();
     this.dialog
       .open(AddTaskComponent, {
         width: '30%',
@@ -75,11 +76,11 @@ export class TasksListComponent implements OnInit {
       });
   }
 
-  deleteTask(id: number, taskName: any) {
+  deleteTask(event: any, id: number, taskName: any) {
+    event.stopPropagation();
     if (confirm(`Are you sure to delete ${taskName}`)) {
       this.api.deleteTask(id).subscribe({
         next: (res) => {
-          alert('Task Deleted Successfully');
           this.getAllTasks();
         },
         error: () => {
@@ -87,6 +88,10 @@ export class TasksListComponent implements OnInit {
         },
       });
     }
+  }
+
+  archiveTask(event: any) {
+    event.stopPropagation();
   }
 
   applyFilter(event: Event) {

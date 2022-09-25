@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'sidenav', component: SidenavComponent },
   { path: 'project-detail/:id', component: ProjectDetailComponent },
   { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'task-detail/:id', component: TaskDetailComponent },
   { path: 'admin', component: LoginComponent },
   { path: 'about-us', component: AboutComponent },

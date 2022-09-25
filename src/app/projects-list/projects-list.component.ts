@@ -75,7 +75,8 @@ export class ProjectsListComponent implements OnInit {
     });
   }
 
-  editProject(row: any) {
+  editProject(event: any, row: any) {
+    event.stopPropagation();
     this.dialog
       .open(AddProjectComponent, {
         width: '30%',
@@ -89,11 +90,11 @@ export class ProjectsListComponent implements OnInit {
       });
   }
 
-  deleteProject(id: number, projectName: any) {
+  deleteProject(event: any, id: number, projectName: any) {
+    event.stopPropagation();
     if (confirm(`Are you sure to delete project ${projectName}`)) {
       this.api.deleteProject(id).subscribe({
         next: (res) => {
-          alert('Project Deleted Successfully');
           this.getAllProjects();
         },
         error: () => {
@@ -101,6 +102,10 @@ export class ProjectsListComponent implements OnInit {
         },
       });
     }
+  }
+
+  archiveProject(event: any) {
+    event.stopPropagation();
   }
 
   applyFilter(event: Event) {

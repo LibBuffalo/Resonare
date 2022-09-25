@@ -1,26 +1,30 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+  UntypedFormControl,
+} from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.scss']
+  styleUrls: ['./add-project.component.scss'],
 })
 export class AddProjectComponent implements OnInit {
-
   emailFormControl = new UntypedFormControl('', Validators.email);
-  projectForm !: UntypedFormGroup;
-  saveButton: string = "Save";
-  dialogTitel: string = "ADD PROJECT";
-  
+  projectForm!: UntypedFormGroup;
+  saveButton: string = 'Save';
+  dialogTitel: string = 'ADD PROJECT';
+
   constructor(
-    private formBuilder: UntypedFormBuilder, 
-    private api: ApiService, 
+    private formBuilder: UntypedFormBuilder,
+    private api: ApiService,
     private dialogRef: MatDialogRef<AddProjectComponent>,
-    @Inject(MAT_DIALOG_DATA) public editData: any,
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public editData: any
+  ) {}
 
   ngOnInit(): void {
     this.projectForm = this.formBuilder.group({
@@ -33,56 +37,67 @@ export class AddProjectComponent implements OnInit {
       contactEmail: ['', Validators.email],
       contactPhoneNumber: [''],
       cost: [''],
-      comments: ['']
+      comments: [''],
     });
 
-    if(this.editData){
-      this.dialogTitel = "EDIT PROJECT"
-      this.saveButton = "Update"
+    if (this.editData) {
+      this.dialogTitel = 'EDIT PROJECT';
+      this.saveButton = 'Update';
       this.projectForm.controls['category'].setValue(this.editData.category);
-      this.projectForm.controls['projectName'].setValue(this.editData.projectName);
-      this.projectForm.controls['projectStartDate'].setValue(this.editData.projectStartDate);
-      this.projectForm.controls['projectEndDate'].setValue(this.editData.projectEndDate);
-      this.projectForm.controls['references'].setValue(this.editData.references);
-      this.projectForm.controls['contactName'].setValue(this.editData.contactName);
-      this.projectForm.controls['contactEmail'].setValue(this.editData.contactEmail);
-      this.projectForm.controls['contactPhoneNumber'].setValue(this.editData.contactPhoneNumber);
+      this.projectForm.controls['projectName'].setValue(
+        this.editData.projectName
+      );
+      this.projectForm.controls['projectStartDate'].setValue(
+        this.editData.projectStartDate
+      );
+      this.projectForm.controls['projectEndDate'].setValue(
+        this.editData.projectEndDate
+      );
+      this.projectForm.controls['references'].setValue(
+        this.editData.references
+      );
+      this.projectForm.controls['contactName'].setValue(
+        this.editData.contactName
+      );
+      this.projectForm.controls['contactEmail'].setValue(
+        this.editData.contactEmail
+      );
+      this.projectForm.controls['contactPhoneNumber'].setValue(
+        this.editData.contactPhoneNumber
+      );
       this.projectForm.controls['cost'].setValue(this.editData.cost);
       this.projectForm.controls['comments'].setValue(this.editData.comments);
     }
   }
-  
-  addProject(){
-   if(!this.editData){
-    if(this.projectForm.valid){
-      this.api.postProject(this.projectForm.value).subscribe({
-        next:(res)=>{
-          alert("Project added successfully");
-          this.projectForm.reset();
-          this.dialogRef.close('save');
-        },
-        error:()=>{
-          alert("Error while adding the project")
-        }
-      })
+
+  addProject() {
+    if (!this.editData) {
+      if (this.projectForm.valid) {
+        this.api.postProject(this.projectForm.value).subscribe({
+          next: (res) => {
+            debugger;
+            this.projectForm.reset();
+            this.dialogRef.close('save');
+          },
+          error: () => {
+            alert('Error while adding the project');
+          },
+        });
+      }
+    } else {
+      this.updateProject();
     }
-   }else{
-     this.updateProject()
-   }
   }
 
-  updateProject(){
+  updateProject() {
     this.api.putProject(this.projectForm.value, this.editData.id).subscribe({
-      next:(res)=>{
-        alert("Project updated Successfully");
+      next: (res) => {
         this.projectForm.reset();
         this.dialogRef.close('update');
       },
-      error:(err)=>{
-        alert("Error while updating the project")
-      }
-    })
+      error: (err) => {
+        alert('Error while updating the project');
+      },
+    });
   }
 }
-
-

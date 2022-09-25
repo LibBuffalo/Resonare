@@ -21,7 +21,7 @@
           </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label><mat-icon matSuffix>link</mat-icon> References</mat-label>
-            <input formControlName="references" matInput placeholder="References">
+            <input type="url" formControlName="references" matInput placeholder="https://docs.google.com/document/u/0/">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label><mat-icon matSuffix>contacts</mat-icon> Contact Name</mat-label>
@@ -29,7 +29,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label><mat-icon matSuffix>email</mat-icon> Contact Email</mat-label>
-            <input type="email" formControlName="contactEmail" matInput [formControl]="emailFormControl" placeholder="Ex. info@mail.com"> 
+            <input type="email" formControlName="contactEmail" matInput placeholder="Ex. info@mail.com"> 
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label><mat-icon matSuffix>phone</mat-icon> Contact Phone Number</mat-label>
