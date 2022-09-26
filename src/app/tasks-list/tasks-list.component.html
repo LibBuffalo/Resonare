@@ -14,6 +14,7 @@
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource2" matSort>
 
+        <!-- Checkbox Column -->
         <!-- <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef>
             <mat-checkbox (change)="$event ? toggleAllRows() : null"
@@ -58,7 +59,8 @@
             <button type="button" class="button" mat-flat-button (click)="editTask($event, row)" style="margin-right: 10px;"><mat-icon style="color: forestgreen; margin-right: 4px;">edit</mat-icon>edit</button>
             <button type="button" class="button" mat-flat-button (click)="openPageTaskDetails(row)" style="margin-right: 10px;"><mat-icon style="color: royalblue;margin-right: 4px;">info</mat-icon >details</button>
             <button type="button" class="button" mat-flat-button (click)="deleteTask($event, row.id, row.taskName)" style="margin-right: 10px;"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
-            <button type="button" class="button" mat-flat-button (click)="archiveTask($event)"><mat-icon style="margin-right: 10px;">archive</mat-icon>archive</button>
+            <button type="button" class="button" mat-flat-button (click)="archiveTask($event, row)" style="margin-right: 10px;"><mat-icon style="margin-right: 10px;">archive</mat-icon>archive</button>
+            <button type="button" class="button" mat-flat-button (click)="taskDone($event, row)"><mat-icon style="margin-right: 10px;">done</mat-icon>done</button>
           </td>
         </ng-container>
     

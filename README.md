@@ -1,2 +1,3 @@
 # Resonare
-Resonare website with project management capabilities
+
+Resonare website with project management capabilities.

@@ -90,7 +90,11 @@ export class TasksListComponent implements OnInit {
     }
   }
 
-  archiveTask(event: any) {
+  archiveTask(event: any, row: any) {
+    event.stopPropagation();
+  }
+
+  taskDone(event: any, row: any) {
     event.stopPropagation();
   }
 
