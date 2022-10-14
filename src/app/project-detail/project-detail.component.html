@@ -20,7 +20,7 @@
                 <mat-card-actions align='end'>
                     <button mat-stroked-button style="color: blueviolet; border-radius: 20px;"(click)="openDialogAddTask()">ADD TASK</button>
                     <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editProjectDetails(_projectsData)">EDIT</button>
-                    <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backProjectListPage()">PROJECTS LIST</button>
+                    <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="backProjectListPage()">BACK</button>
                     <button mat-stroked-button style="color: orangered; border-radius: 20px; margin-left: 4px;" (click)="backCalendarPage()">CALENDAR</button>
                 </mat-card-actions>
             </mat-card>
@@ -44,6 +44,7 @@
                 <mat-card-actions [align]="'end'">
                     <button mat-stroked-button style="color: forestgreen; border-radius: 20px; margin-left: 4px;" (click)="editTask(relatedTask)">EDIT</button>
                     <button mat-stroked-button style="color: royalblue; border-radius: 20px; margin-left: 4px;" (click)="taskListPage()">TASKS LIST</button>
+                    <button mat-stroked-button style="color: rgb(65, 225, 78); border-radius: 20px; margin-left: 4px;" (click)="taskDone()">DONE</button>
                 </mat-card-actions>
             </mat-card>
         </md-content>

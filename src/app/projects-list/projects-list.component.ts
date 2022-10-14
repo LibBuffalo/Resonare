@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { id } from 'date-fns/locale';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { ApiService } from '../services/api.service';
@@ -22,6 +23,7 @@ export class ProjectsListComponent implements OnInit {
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
+  doneProjects: any[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -104,8 +106,41 @@ export class ProjectsListComponent implements OnInit {
     }
   }
 
-  archiveProject(event: any) {
+  archiveProject(event: any, row: any) {
     event.stopPropagation();
+  }
+
+  projectDone(event: any, row: any) {
+    event.stopPropagation();
+    this.doneProjects.push({ projectId: row, isCompleted: true });
+    console.log(this.doneProjects);
+    this.doneProjects.map(function (element) {
+      if (element == row) {
+      }
+    });
+    this.api
+      .projectIsCompleted(
+        this.dataSource.data
+        // category: row.category,
+        // projectName: row.projectName,
+        // projectStartDate: row.projectStartDate,
+        // projectEndDate: row.projectEndDate,
+        // references: row.references,
+        // contactName: row.contactName,
+        // contactemail: row.contactEmail,
+        // contactPhoneNumber: row.contactPhoneNumber,
+        // cost: row.cost,
+        // comments: row.comments,
+        // id: row.id,
+      )
+      .subscribe({
+        next: (res) => {
+          alert('Project is done');
+        },
+        error: () => {
+          alert('Error while adding the project');
+        },
+      });
   }
 
   applyFilter(event: Event) {

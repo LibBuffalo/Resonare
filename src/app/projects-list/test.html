@@ -1,0 +1,19 @@
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z2" style="margin-bottom: 10px;" matSort>      
+    <ng-container matColumnDef="DateAdded">         <mat-header-cell *matHeaderCellDef mat-sort-header> Submission Time </mat-header-cell>         <mat-cell *matCellDef="let row"> {{row.DateAdded | date: 'medium'}} </mat-cell>     
+    </ng-container>      
+    <ng-container matColumnDef="StartDate">         <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>         <mat-cell *matCellDef="let row"> {{row.StartDate | date}} </mat-cell>     
+    </ng-container>      
+    <ng-container matColumnDef="EndDate">         <mat-header-cell *matHeaderCellDef mat-sort-header> End Date </mat-header-cell>         <mat-cell *matCellDef="let row"> {{row.EndDate | date}} </mat-cell>     
+    </ng-container>      
+    <ng-container matColumnDef="IsGranted">         <mat-header-cell *matHeaderCellDef mat-sort-header> Granted </mat-header-cell>         <mat-cell *matCellDef="let row"  [ngClass]="row.IsGranted ? 'make-green' : ''"> {{row.IsGranted}} </mat-cell>     
+    </ng-container>      
+    <ng-container matColumnDef="Remarks">         <mat-header-cell *matHeaderCellDef> Remarks </mat-header-cell>         <mat-cell *matCellDef="let row" [style.color]="row.color">         <button class="btn btn-dark btn-sm" (click)="viewRemarks(row.Remarks)">Select</button>         </mat-cell>     
+    </ng-container>      
+    <mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="{'make-green': row.IsGranted==true}"></mat-header-row>                 
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>  
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> 
+<mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'make-gold': row.IsGranted }"> 
+
+    .make-green {     background-color: green } 

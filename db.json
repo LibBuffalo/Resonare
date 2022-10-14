@@ -92,7 +92,7 @@
     },
     {
       "projectName": "Big Project",
-      "taskName": "TEstimene",
+      "taskName": "Testimene",
       "taskDate": "2022-08-31T18:44:26.230Z",
       "taskDeadline": "2022-08-26T00:00:00.000Z",
       "references": "",
@@ -118,12 +118,61 @@
       "id": 7
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
+  "completedProjects": [
+    [
+      {
+        "category": "ESL",
+        "projectName": "Haapsalu Suvekool",
+        "projectStartDate": "2022-08-29T00:00:00.000Z",
+        "projectEndDate": "2022-08-31T00:00:00.000Z",
+        "references": "",
+        "contactName": "",
+        "contactEmail": "",
+        "contactPhoneNumber": "",
+        "cost": "",
+        "comments": "",
+        "id": 1
+      },
+      {
+        "category": "Helikunst",
+        "projectName": "Big Project",
+        "projectStartDate": "2022-08-28T00:00:00.000Z",
+        "projectEndDate": "2022-08-29T00:00:00.000Z",
+        "references": "https://helikunst.ee/",
+        "contactName": "",
+        "contactEmail": "",
+        "contactPhoneNumber": "",
+        "cost": "",
+        "comments": "Muudetud tekst",
+        "id": 2
+      },
+      {
+        "category": "Helikunst",
+        "projectName": "Male",
+        "projectStartDate": "2022-09-22T00:00:00.000Z",
+        "projectEndDate": "2022-09-24T00:00:00.000Z",
+        "references": "https://www.chess.com/",
+        "contactName": "",
+        "contactEmail": "",
+        "contactPhoneNumber": "",
+        "cost": "",
+        "comments": "",
+        "id": 3
+      },
+      {
+        "category": "ESL",
+        "projectName": "Christmas",
+        "projectStartDate": "2022-09-30T00:00:00.000Z",
+        "projectEndDate": "2022-09-30T00:00:00.000Z",
+        "references": "https://christmas.com/",
+        "contactName": "",
+        "contactEmail": "",
+        "contactPhoneNumber": "",
+        "cost": "",
+        "comments": "",
+        "id": 4
+      }
+    ]
   ],
   "profile": {
     "name": "typicode"

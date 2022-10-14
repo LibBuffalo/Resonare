@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { id } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root',
@@ -53,5 +54,12 @@ export class ApiService {
 
   getTaskDetails(id: number) {
     return this.http.get<any>('http://localhost:3000/tasksList/' + id);
+  }
+
+  projectIsCompleted(data: any) {
+    return this.http.post<any>(
+      'http://localhost:3000/completedProjects/',
+      data
+    );
   }
 }

@@ -67,6 +67,7 @@ export class ProjectDetailComponent implements OnInit {
     this.router.navigate(['tasks'], {});
   }
 
+  taskDone() {}
   openDialogAddTask() {
     this.dialog
       .open(AddTaskComponent, {
