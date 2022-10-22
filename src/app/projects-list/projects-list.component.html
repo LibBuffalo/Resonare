@@ -13,7 +13,7 @@
     </mat-form-field>
     
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataSource" matSort >
+      <table mat-table [dataSource]="dataSource" matSort>
     
         <ng-container matColumnDef="category" >
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
@@ -42,12 +42,16 @@
             <button type="button" class="button" mat-flat-button (click)="openPageProjectDetails(row)" style="margin-right: 10px;"><mat-icon style="color: royalblue;margin-right: 4px;">info</mat-icon >details</button>
             <button type="button" class="button" mat-flat-button (click)="deleteProject($event, row.id, row.projectName)" style="margin-right: 10px;"><mat-icon color="warn" style="margin-right: 4px;">delete</mat-icon>delete</button>
             <button type="button" class="button" mat-flat-button (click)="archiveProject($event, row)" style="margin-right: 10px;"><mat-icon style="margin-right: 10px;">archive</mat-icon>archive</button>
-            <button type="button" class="button" mat-flat-button (click)="projectDone($event, row.id)"><mat-icon style="margin-right: 10px;">done</mat-icon>done</button>
+            <button type="button" class="button" mat-flat-button (click)="projectDone($event, row)" style="margin-right: 10px;"><mat-icon style="margin-right: 10px;">done</mat-icon>done</button>
+            <button type="button" class="button" mat-flat-button (click)="projectUnDone($event, row.id, row.projectName)"><mat-icon style="margin-right: 10px;">undone</mat-icon>undone</button>
           </td>
         </ng-container>
-    
+
+        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openPageProjectDetails(row)" ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openPageProjectDetails(row)" [ngClass]="doneProjects.includes(row.id) ? 'green' : 'red'">
+        </tr>
+      
     
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
@@ -59,9 +63,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 
 <router-outlet></router-outlet>

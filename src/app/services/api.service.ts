@@ -62,4 +62,14 @@ export class ApiService {
       data
     );
   }
+
+  projectIsNotCompleted(id: number) {
+    return this.http.delete<any>(
+      'http://localhost:3000/completedProjects/' + id
+    );
+  }
+
+  getCompletedProjects() {
+    return this.http.get<any>('http://localhost:3000/completedProjects/');
+  }
 }

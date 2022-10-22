@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { id } from 'date-fns/locale';
+import { __values } from 'tslib';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { ApiService } from '../services/api.service';
@@ -23,7 +24,9 @@ export class ProjectsListComponent implements OnInit {
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
-  doneProjects: any[] = [];
+  doneProjects: any;
+  completedProjects: any;
+  isTheProjectDone: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -77,6 +80,17 @@ export class ProjectsListComponent implements OnInit {
     });
   }
 
+  getAllCompletedProjects() {
+    this.api.getCompletedProjects().subscribe({
+      next: (res) => {
+        this.doneProjects = res.map(function (projecId: any) {
+          return projecId.projectId;
+        });
+        console.log(this.doneProjects);
+      },
+    });
+  }
+
   editProject(event: any, row: any) {
     event.stopPropagation();
     this.dialog
@@ -112,35 +126,40 @@ export class ProjectsListComponent implements OnInit {
 
   projectDone(event: any, row: any) {
     event.stopPropagation();
-    this.doneProjects.push({ projectId: row, isCompleted: true });
-    console.log(this.doneProjects);
-    this.doneProjects.map(function (element) {
-      if (element == row) {
-      }
-    });
     this.api
-      .projectIsCompleted(
-        this.dataSource.data
-        // category: row.category,
-        // projectName: row.projectName,
-        // projectStartDate: row.projectStartDate,
-        // projectEndDate: row.projectEndDate,
-        // references: row.references,
-        // contactName: row.contactName,
-        // contactemail: row.contactEmail,
-        // contactPhoneNumber: row.contactPhoneNumber,
-        // cost: row.cost,
-        // comments: row.comments,
-        // id: row.id,
-      )
+      .projectIsCompleted({
+        category: row.category,
+        projectName: row.projectName,
+        projectStartDate: row.projectStartDate,
+        projectEndDate: row.projectEndDate,
+        references: row.references,
+        contactName: row.contactName,
+        contactemail: row.contactEmail,
+        contactPhoneNumber: row.contactPhoneNumber,
+        cost: row.cost,
+        comments: row.comments,
+        projectId: row.id,
+      })
       .subscribe({
         next: (res) => {
-          alert('Project is done');
+          this.getAllCompletedProjects();
         },
         error: () => {
           alert('Error while adding the project');
         },
       });
+  }
+
+  projectUnDone(event: any, id: number, projectName: any) {
+    event.stopPropagation();
+    this.api.projectIsNotCompleted(id).subscribe({
+      next: (res) => {
+        this.getAllCompletedProjects();
+      },
+      error: () => {
+        alert('Error while undone the project');
+      },
+    });
   }
 
   applyFilter(event: Event) {
@@ -154,5 +173,6 @@ export class ProjectsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProjects();
+    this.getAllCompletedProjects();
   }
 }
